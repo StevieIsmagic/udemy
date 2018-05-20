@@ -1,10 +1,16 @@
 const averages = [6, 15.7, 9, 18, 22.1, 9.2, 4];
 
+const multiplier = function(dollar) {
+  return Math.pow(dollar, 2);
+};
+
+const moneyMachine = averages.map(multiplier);
+
 const celebration = function(player) {
   return player > 15;
 };
 
-const highlight = average.filter(celebration);
+const highlight = averages.filter(celebration);
 
 console.log('---------');
 
