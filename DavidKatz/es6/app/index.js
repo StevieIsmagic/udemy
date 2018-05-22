@@ -1,4 +1,28 @@
-import { students, total } from './students.js';
+class Entity {
+  constructor(name, height) {
+    this.name = name;
+    this.height = height;
+  }
+
+  greet() {
+    console.log(`Hi! I'm ${this.name} from middle earth!`);
+  }
+}
+
+let Merry = new Entity('Merry', 4.6);
+Merry.greet();
+
+export default Entity;
+
+class Hobbit extends Entity {
+  constructor(name, height) {
+    super(name, height);
+  }
+}
+
+console.log('---------');
+
+import multiply, { students, total, add } from './students.js';
 
 console.log('---------');
 
