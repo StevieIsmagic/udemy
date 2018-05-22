@@ -18,7 +18,13 @@ class Hobbit extends Entity {
   constructor(name, height) {
     super(name, height);
   }
+  greet() {
+    console.log(`Hi I am ${name}, from the Shire`);
+  }
 }
+
+let Frodo = new Hobbit('Frodo Baggins', 4.5);
+Frodo.greet();
 
 console.log('---------');
 
