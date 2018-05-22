@@ -8,7 +8,10 @@
     "start": "webpack-dev-server"
   },
   "babel": {
-    "presets": ["es2015", "react"]
+    "presets": [
+      "es2015",
+      "react"
+    ]
   },
   "keywords": [],
   "author": "",
