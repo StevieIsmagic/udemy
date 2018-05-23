@@ -1,5 +1,49 @@
 /* ========================================
-
     CODE YOUR STYLES BELOW!
-
    ====================================== */
+
+.facebook-style-btn {
+    border-radius: 2px;
+    /* REM references root font size/not the parent */
+    font-size: 0.9rem;
+    padding: 6px 12px;
+}
+
+.facebook-style-dark {
+    /* Mozilla browser */
+    -moz-box-shadow: inset 0 1px 0 0 #4d73bf;
+    /* Webkit based browsers */
+    -webkit-box-shadow: inset 0 1px 0 0 #4d73bf;
+    /* fallback option for all other browsers */
+    box-shadow: inset 0 1px 0 0 #4d73bf;
+    background: #4267b2;
+    border: solid 1px #4267b2;
+    color: white;
+    text-shadow: 0 1px 0 green;
+}
+
+.facebook-style-dark:hover {
+    background: #2b54a7;
+}
+
+.facebook-style-dark:active {
+    background: #1d4698;
+    border-color: #1d4698;
+}
+
+.facebook-style-light {
+    background: #f6f7f9;
+    border: solid 1px #ced0d4;
+    color: #4b4f56;
+}
+
+.facebook-style-light:hover {
+    background: #e9ebee;
+}
+
+.facebook-style-light:active {
+    background: #d8dade;
+    border-color: #d8dade;
+}
+
+/* 3D - Button 1 */
