@@ -1,6 +1,4 @@
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
 
 export default class Main extends Component {
   render() {
@@ -15,8 +13,7 @@ export default class Main extends Component {
           <hr/>
           Please Login First
           <hr/>
-          <button onclick={this.props.auth.login}>LOGIN :)</button>
-
+          <button onClick={this.props.auth.login}>LOGIN :)</button>
         </div>
       </div>
     )
