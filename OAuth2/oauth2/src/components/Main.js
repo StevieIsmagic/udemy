@@ -9,12 +9,15 @@ export default class Main extends Component {
           Do you want to see a secret area? <br/>
           <a href="/secret">Click Here :)</a>
         </p>
+
+        {!this.props.auth.isAuthenticated() &&
         <div>
           <hr/>
           Please Login First
           <hr/>
           <button onClick={this.props.auth.login}>LOGIN :)</button>
         </div>
+        }
       </div>
     )
   }

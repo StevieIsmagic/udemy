@@ -4,7 +4,6 @@ import Secret from './components/Secret.js';
 import NotFound from './components/NotFound.js';
 import Callback from './components/Callback.js';
 
-
 import logo from './logo.svg';
 import './App.css';
 
@@ -19,10 +18,11 @@ class App extends Component {
         mainComponent = <Callback />;
         break;
       case "secret":
-        mainComponent = <Secret />;
+        mainComponent = this.props.auth.isAuthenticated() ? 
+        <Secret {...this.props} /> : <NotFound {...this.props}/>;
         break;
       default:
-        mainComponent = <NotFound />;
+        mainComponent = <NotFound {...this.props} />;
     }
 
     return (

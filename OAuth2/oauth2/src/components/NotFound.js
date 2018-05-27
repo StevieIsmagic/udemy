@@ -5,6 +5,9 @@ export default class NotFound extends Component {
     return (
     <div>
       Page Not Found! :) 
+      <br/>
+      <button onClick={this.props.auth.login}>Login</button> First Please
+      <br/>
     </div>
     )
   }
