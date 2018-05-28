@@ -5,7 +5,7 @@ export default class Main extends Component {
     return (
       <div>
         <p className="App-intro">
-          Hello {this.props.name}! <br/>
+          Hello {this.props.name}! <hr/>
           Do you want to see a secret area? <br/>
           <a href="/secret">Click Here :)</a>
         </p>
@@ -15,7 +15,7 @@ export default class Main extends Component {
           <hr/>
           Please Login First
           <hr/>
-          <button onClick={this.props.auth.login}>LOGIN :)</button>
+          <button onClick={this.props.auth.login}> LOGIN :) </button>
         </div>
         }
       </div>

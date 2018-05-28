@@ -15,9 +15,13 @@ window.setState = (changes) => {
   document.getElementById('root'));
 };
 
-/* eslint no-restricted-globals: 0 */ 
+/* eslint no-restricted-globals: 0 */
+let username = auth.getProfile() || "Lover";
+console.log(username);
+
 let initialState = {
-  name: 'Stevie',
+  name: username.name,
+  picture: username.picture,
   location: location.pathname.replace(/^\/?|\/$/g, ""),
   auth
 };
