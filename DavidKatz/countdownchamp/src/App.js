@@ -13,19 +13,31 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // Example Using SetTimeout to update State
-    const series = ['Garfield', 'Happy Days', 'Captain Planet'];
-    setTimeout(() => {
-      this.setState({ series: series });
-    }, 2000);
-  }
+    fetch(`http://api.tvmaze.com/search/shows?q=Vikings`)
+      .then((response) => response.json())
+      .then(json => {
+        this.setState({
+          series: this.state.series.concat(json)
+        })
+      });
 
-  getCurrentDate() {
-    let date = new Date();
-    return date.toDateString();
-  }
-
-  render() {
+      // Example Using SetTimeout to update State
+      const shows = ['Garfield', 'Happy Days'];
+      setTimeout(() => {
+        this.setState({ series: this.state.series.concat(shows) });
+      }, 3000);
+      
+      
+    }
+    
+    getCurrentDate() {
+      let date = new Date();
+      return date.toDateString();
+    }
+    
+    render() {
+      
+      console.log(this.state.series)
     return (
       <div> 
         <h1>Countdown - Stevie - App Component </h1>
