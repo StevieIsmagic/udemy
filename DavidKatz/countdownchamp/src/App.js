@@ -1,20 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'whatwg-fetch';
+
+const Intro = (props) => (
+  <p className='App-Intro'>
+    {props.message}
+  </p>
+)
 
 class App extends Component {
+  state = {
+    series: []
+  }
+
+  componentDidMount() {
+    // Example Using SetTimeout to update State
+    const series = ['Garfield', 'Happy Days', 'Captain Planet'];
+    setTimeout(() => {
+      this.setState({ series: series });
+    }, 2000);
+  }
+
+  getCurrentDate() {
+    let date = new Date();
+    return date.toDateString();
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div> 
+        <h1>Countdown - Stevie - App Component </h1>
+        <h2>{this.getCurrentDate()}</h2>
+        <hr/>
+        <h1>TV SERIES LIST </h1>
+        <Intro message='Here you can find all your love:)' />
+        Series Array Length - {this.state.series.length}
       </div>
-    );
+
+    )
   }
 }
 
