@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 let displayStyle = {
   listStyleType: 'none',
@@ -8,10 +9,10 @@ let displayStyle = {
 };
 
 const SeriesListItem = ({ series }) => (
-  <li 
-    
-    style={displayStyle}>
-    {series.show.name}
+  <li style={displayStyle}>
+    <Link to={`/series/${series.show.id}`}>
+      {series.show.name}
+    </Link>
   </li>
 );
 

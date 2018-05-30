@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Series from './Series.js';
+import Main from './Main.js';
 import 'whatwg-fetch';
 
 
@@ -23,8 +23,7 @@ class App extends Component {
         <hr/>
         <h1>TV SERIES LIST </h1>
         <Intro message='Here you can find all your love:)' />
-        
-        <Series />
+        <Main />
       </div>
 
     )
