@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 
 class Product extends Component {
-  state = {
-    qty: 0
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      qty: 0
+    }
+    
+    this.buy = this.buy.bind(this);
+    this.show = this.show.bind(this);
+  }
 
   buy() {
     this.setState({qty: this.state.qty + 1});
     this.props.handleTotal(this.props.price)
-    alert('You bought and android')
+    // alert(`You bought an ${this.props.name}`)
   }
 
   show() {
@@ -18,7 +25,6 @@ class Product extends Component {
   render() {
     return (
       <div>
-        <h2>Hello from Stevie</h2>
         <h2>{this.props.name} - ${this.props.price}</h2>
         <button onClick={this.buy}> Buy </button>
         <button onClick={this.show}> Show </button>
@@ -30,10 +36,11 @@ class Product extends Component {
 }
 
 class Total extends Component {
+  
   render() {
     return (
       <div>
-        <h3> Total Cash: {this.props.total}</h3>
+        <h3> Total Cash: ${this.props.total}</h3>
       </div>
     );
   }
@@ -43,14 +50,16 @@ class ProductList extends Component {
   constructor(props) {
     super(props);
   
-    let state = {
+    this.state = {
         total: 0,
         productList: [
-          {name: 'android', price: 121},
-          {name: 'apple', price: 221},
-          {name: 'nokia', price: 165},
+          {name: 'Android', price: 121},
+          {name: 'Apple', price: 221},
+          {name: 'Nokia', price: 165},
         ]
-      };
+      }
+    this.calculateTotal = this.calculateTotal.bind(this);
+    this.showProduct = this.showProduct.bind(this);
   }
 
   calculateTotal(price) {
@@ -58,7 +67,7 @@ class ProductList extends Component {
   }
 
   showProduct(name){
-    alert('You Selected' + name);
+    alert('You Selected ' + name);
   }
 
   render(){
@@ -77,6 +86,8 @@ class ProductList extends Component {
 
     return (
       <div>
+        <h2><em>Product List - Cell Phones WholeSale</em></h2>
+        
         {products}
         <Total total={this.state.total}/>
       </div>
