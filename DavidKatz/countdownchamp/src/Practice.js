@@ -46,6 +46,38 @@ class Total extends Component {
   }
 };
 
+class ProductForm extends Component {
+  constructor() {
+    super();
+    this.submit = this.submit.bind(this);
+  }
+
+  submit(e) {
+    e.preventDefault();
+    
+    let product = {
+      name: this.refs.name.value,
+      price: parseInt(this.refs.price.value, 10)
+    }
+
+    this.props.handleCreate(product);
+
+    this.refs.name.value = "";
+    this.refs.price.value = "";
+  }
+  render() {
+    return (
+      <form onSubmit={this.submit}>
+        <input type='text' placeholder='Product Name' ref='name'/>
+        <input type='text' placeholder='Product Price' ref='price' />
+        <br/><br/>
+        <button> Create Poduct </button>
+        <hr/>
+      </form>
+    )
+  }
+}
+
 class ProductList extends Component {
   constructor(props) {
     super(props);
@@ -60,6 +92,11 @@ class ProductList extends Component {
       }
     this.calculateTotal = this.calculateTotal.bind(this);
     this.showProduct = this.showProduct.bind(this);
+    this.createProduct = this.createProduct.bind(this);
+  }
+
+  createProduct(product) {
+    this.setState({ productList: this.state.productList.concat(product) })
   }
 
   calculateTotal(price) {
@@ -87,7 +124,7 @@ class ProductList extends Component {
     return (
       <div>
         <h2><em>Product List - Cell Phones WholeSale</em></h2>
-        
+        <ProductForm handleCreate={this.createProduct}/>
         {products}
         <Total total={this.state.total}/>
       </div>
