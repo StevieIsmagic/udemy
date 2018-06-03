@@ -9,6 +9,7 @@
     REM - references root font size - not the parent */
     font-size: 0.9rem;
     padding: 6px 12px;
+    
 }
 
 .facebook-style-dark {
@@ -112,3 +113,34 @@
     border-bottom-width: 0;
     bottom: -3px;
 }
+/* ========================================
+    ANIMATED BUTTONS
+   ====================================== */
+
+   .animated-button-1 {
+       position: relative;
+       display: inline-block;
+       padding: 20px 40px;
+       font-size: 1.4rem;
+       background-color: #00b3b4;
+       
+       background-image: url(pattern.png);
+       background-size: 40px 40px;
+       border: solid 1px #555;
+       color: white;
+       transition: all ease 0.3s; 
+   }
+
+   .animated-button-1:hover {
+       -webkit-animation: loading-button-animation 2s linear infinite;
+       animation: loading-button-animation 2s linear inifinite;
+   }
+
+   @keyframes loading-button-animation {
+       from {
+           background-position: 0 0;
+       }
+       to {
+           background-position: 40px 0;
+       }
+   }
