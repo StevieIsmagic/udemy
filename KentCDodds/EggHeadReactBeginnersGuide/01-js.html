@@ -1,20 +1,28 @@
 <div id="root"></div>
 <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
 
-<script type="text/javascript"> 
+<script type="text/babel"> 
   const rootElement = document.getElementById('root')
-  // const element = document.createElement('div')
+  //1 const element = document.createElement('div')
   // element.textContent = 'Hello World'
   // element.className = 'container'
   // rootElement.appendChild(element)
-  const element = React.createElement(
-    'div',
-    {className: 'container', 
-    children: ['Hello World',
-    'Goodbye Lover']}
-    
-  )
-  console.log('Element', element)
+
+  //2 const element = React.createElement(
+  //   'div',
+  //   {className: 'container', 
+  //   children: ['Hello World',
+  //   'Goodbye Lover']}
+  // )
+  // console.log('Element', element)
+  const content = "Hello World"
+  const myClassName = 'container'
+  const props = {
+    className: 'container',
+    children: 'Hello World'
+  }
+  const element = <div {...props} />
   ReactDOM.render(element, rootElement)
 </script>
