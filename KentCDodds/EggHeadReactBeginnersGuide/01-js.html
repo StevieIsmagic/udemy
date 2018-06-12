@@ -5,6 +5,7 @@
 
 <script type="text/babel"> 
   // const rootElement = document.getElementById('root')
+
   //1 const element = document.createElement('div')
   // element.textContent = 'Hello World'
   // element.className = 'container'
@@ -71,11 +72,24 @@
   // }
 
   function Message({message}) {
-    return <div> {message} </div>
+  // TERNARY - Equivalent to the subsequent IF-Else Statement
+    return message ? 
+      <div>{message}</div> : 
+      React.createElement('div', null, 'No Message')
+
+  //   if (!message) {      
+  // // JSX Equivalent - JSX transpiles down to this React.createElement
+  // // Notice that this is just plain old Javascript...
+  // //                          Element - Props - Message
+  //     return React.createElement('div', null, 'No Message')
+  //   }
+  //   // JSX
+  //   return <div> {message} </div>
   }
 
   ReactDOM.render(
-    <Message message={null} />,
+    <Message message={'Hii There'} />,
     document.getElementById('root')
   )
+
 </script>
