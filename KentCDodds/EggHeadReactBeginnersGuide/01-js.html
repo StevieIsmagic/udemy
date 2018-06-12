@@ -4,7 +4,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
 
 <script type="text/babel"> 
-  const rootElement = document.getElementById('root')
+  // const rootElement = document.getElementById('root')
   //1 const element = document.createElement('div')
   // element.textContent = 'Hello World'
   // element.className = 'container'
@@ -22,14 +22,38 @@
   // const myClassName = 'container'
   // const props = { className: 'container', children: 'Hello World'}
   // const element = <div {...props} />
-  const Message = (props) => <div>{props.children}</div>
-  const element = (
-    <div className='container'>
-      <Message> 
-        Hello World 
-        <Message>Goodbye World<Message/>
-      <Message/>
-    </div>
+  // const Message = (props) => <div>{props.children}</div>
+  // const element = (
+  //   <div className='container'>
+  //     <Message> 
+  //       Hello World 
+  //       <Message>Goodbye World<Message/>
+  //     <Message/>
+  //   </div>
+  // )
+  function SayHello(props) {
+    return (
+      <div> 
+        Hello {props.firstName} {props.lastName}
+      </div>
+    )
+  }
+
+  const PropTypes = {
+    string(props, propName, componentName) {
+      if (typeof props[propName] !== 'string') {
+        return new Error(`Hey, you should pass a string for ${propName} 
+        in ${componentName} but you passed a ${typeof props[propName]} instead`)
+      }
+    }
+  }
+  SayHello.propTypes = {
+    firstName: PropTypes.string,
+    lastName: PropTypes.string
+  }
+  
+  ReactDOM.render(
+    <SayHello firstName={true} />,
+    document.getElementById('root')
   )
-  ReactDOM.render(element, rootElement)
 </script>
