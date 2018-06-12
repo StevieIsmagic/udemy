@@ -31,46 +31,51 @@
   //     <Message/>
   //   </div>
   // )
-  function SayHello(props) {
-    return (
-      <div> 
-        Hello {props.firstName}{' '} 
-        {props.lastName || 'Unknown'}
-      </div>
-    )
+
+  // function SayHello(props) {
+  //   return (
+  //     <div> 
+  //       Hello {props.firstName}{' '} 
+  //       {props.lastName || 'Unknown'}
+  //     </div>
+  //   )
+  // }
+
+  // const PropTypes = {
+  //   string(props, propName, componentName) {
+  //     if (typeof props[propName] !== 'string') {
+  //       return new Error(`Hey, you should pass a string for ${propName} 
+  //       in ${componentName} but you passed a ${typeof props[propName]} instead`)
+  //     }
+  //   }
+  // }
+
+  // SayHelloAsFunction.propTypes = {
+  //   firstName: PropTypes.string,
+  //   lastName: PropTypes.string
+  // }
+
+  // class SayHelloAsClass exends React.Component {
+  //   static propTypes = {
+  //     firstName: PropTypes.string.isRequired,
+  //     lastName: PropTypes.string.isRequired
+  //   }
+  //   render() {
+  //     const {firstName, lastName} = this.props
+  //     return (
+  //       <div>
+  //         Hello {firstName} {lastName} !
+  //       </div>
+  //     )
+  //   }
+  // }
+
+  function Message({message}) {
+    return <div> {message} </div>
   }
 
-  const PropTypes = {
-    string(props, propName, componentName) {
-      if (typeof props[propName] !== 'string') {
-        return new Error(`Hey, you should pass a string for ${propName} 
-        in ${componentName} but you passed a ${typeof props[propName]} instead`)
-      }
-    }
-  }
-
-  SayHelloAsFunction.propTypes = {
-    firstName: PropTypes.string,
-    lastName: PropTypes.string
-  }
-
-  class SayHelloAsClass exends React.Component {
-    static propTypes = {
-      firstName: PropTypes.string.isRequired,
-      lastName: PropTypes.string.isRequired
-    }
-    render() {
-      const {firstName, lastName} = this.props
-      return (
-        <div>
-          Hello {firstName} {lastName} !
-        </div>
-      )
-    }
-  }
-  
   ReactDOM.render(
-    <SayHello firstName={true} />,
+    <Message message={null} />,
     document.getElementById('root')
   )
 </script>
