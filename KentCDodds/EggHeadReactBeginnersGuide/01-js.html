@@ -17,12 +17,17 @@
   //   'Goodbye Lover']}
   // )
   // console.log('Element', element)
-  const content = "Hello World"
-  const myClassName = 'container'
-  const props = {
-    className: 'container',
-    children: 'Hello World'
-  }
-  const element = <div {...props} />
+
+  // const content = "Hello World"
+  // const myClassName = 'container'
+  // const props = { className: 'container', children: 'Hello World'}
+  // const element = <div {...props} />
+  const message = (props) => <div>{props.msg}</div>
+  const element = (
+    <div className='container'>
+      {message({msg:'Hello World'})}
+      {message({msg: 'Goodbye World'})}
+    </div>
+  )
   ReactDOM.render(element, rootElement)
 </script>
