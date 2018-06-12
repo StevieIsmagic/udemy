@@ -34,7 +34,8 @@
   function SayHello(props) {
     return (
       <div> 
-        Hello {props.firstName} {props.lastName}
+        Hello {props.firstName}{' '} 
+        {props.lastName || 'Unknown'}
       </div>
     )
   }
@@ -47,9 +48,25 @@
       }
     }
   }
-  SayHello.propTypes = {
+
+  SayHelloAsFunction.propTypes = {
     firstName: PropTypes.string,
     lastName: PropTypes.string
+  }
+
+  class SayHelloAsClass exends React.Component {
+    static propTypes = {
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired
+    }
+    render() {
+      const {firstName, lastName} = this.props
+      return (
+        <div>
+          Hello {firstName} {lastName} !
+        </div>
+      )
+    }
   }
   
   ReactDOM.render(
