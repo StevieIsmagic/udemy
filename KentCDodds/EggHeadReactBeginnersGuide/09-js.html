@@ -13,18 +13,39 @@
           There have been {state.eventCount} events
         </p>
         <p>
-          <button>d-*_*-b</button>
+          <button 
+            onMouseOver={increment}>d-*_*-b</button>
         </p>
         <p>
           You typed: {state.username}
         </p>
         <p>
-          <input />
+          <input onChange={updateUsername}/>
         </p>
       </div>
     )
   }
 
+  function setState(newState) {
+    Object.assign(state, newState)
+    renderApp()
+  }
+
+  function updateUsername(event) {
+    console.log(event)
+    setState({ username: event.target.value })
+  }
+
+  function increment() {
+    setState({ eventCount: state.eventCount + 1 })
+  }
 
 
+  function renderApp() {
+    ReactDOM.render(
+      <App/>,
+      document.getElementById('root')
+    )
+  }
+  renderApp()
 </script>
