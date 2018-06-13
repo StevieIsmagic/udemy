@@ -5,8 +5,34 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
 
   <script type='text/babel'>
+    class NameForm extends React.Component {
 
-    const element =
-   ReactDOM.render( element, document.getElementById('root') )
+      handleSubmit = event => {
+        event.preventDefault()
+        console.log(event.target.elements.username.value)
+        console.log("REF", this.inputNode.value)
+      }
+
+      render(){
+        return (
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              NAME:
+              <input 
+                type="text" 
+                name="username" 
+                ref={node => this.inputNode = node}
+              />
+            </label>
+            <button type="submit">SUBMIT</button>
+          </form>
+        )
+      }
+    }
+
+  ReactDOM.render(
+    <NameForm />, 
+    document.getElementById('root') 
+  )
   </script>
 </body>
