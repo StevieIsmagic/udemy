@@ -6,18 +6,21 @@
 
   <script type='text/babel'>
   class Counter extends React.Component {
-    constructor(...args) {
-      super(...args)
-      this.state = {count: 0}
+    state = {count: 0}
+
+    handleClick = () => {
+      this.setState(({count}) => ({ 
+        count: count + 1 
+      }))
     }
+
     render() {
       return (
-        <button style={{color: "white", backgroundColor: 'teal'}}
-          onClick= {() => 
-            this.setState(({count}) => ({
-              count: count + 1
-            }))}> 
-            {this.state.count}
+        <button 
+          style={{color: "white", backgroundColor: 'teal'}}
+          onClick={this.handleClick}
+        > 
+          {this.state.count}
         </button>
       )
     }
