@@ -6,7 +6,31 @@
 
 <script type='text/babel'>
 
-const element = <div />
+class StopWatch extends React.Component {
+  render() {
+    const {lapse, running} = this.props
+    const buttonStyles = {
+      border: '1px solid green',
+      background: 'pink',
+      fontSize: '2em',
+      padding: 15,
+      margin: 5,
+      width: 200
+    }
+    return (
+    <div style={{textAlign: 'center'}}>
+      <label style={{fontSize: '5em', display: 'block'}}>
+        {lapse}ms
+      </label>
+      <button style={buttonStyles}>{running ? 'Stop' : 'Start'}</button>
+      <button style={buttonStyles}>Clear</button>
+    </div>
+    )
+  }
+  
+}
+
+const element = <StopWatch running={true} lapse={10} />
 ReactDOM.render(
   element,
   document.getElementById('root')
