@@ -13,19 +13,22 @@ class StopWatch extends React.Component {
   }
 
   handleRunClick() {
-    const startTime = Date.now() - this.state.lapse
-    console.log(startTime)
-    setInterval(() => {
-      this.setState({ lapse: Date.now() - startTime })
+    this.setState(state => {
+      if (state.running) {
+        clearInterval(this.timer)
+      } else {
+        const startTime = Date.now() - this.state.lapse
+        this.timer = setInterval(() => {
+          this.setState({ lapse: Date.now() - startTime })
+        })
+      }
+      return { running: !state.running}
     })
-    this.setState({ running: true })
   }
 
   handleClearClick = () => {
-    this.setState({
-      lapse: 0,
-      running: false
-    })
+    clearInterval(this.timer)
+    this.setState({ lapse: 0, running: false })
   }
 
   render() {
