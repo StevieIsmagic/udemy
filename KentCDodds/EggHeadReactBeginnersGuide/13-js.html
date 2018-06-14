@@ -6,26 +6,55 @@
 
   <script type='text/babel'>
     class NameForm extends React.Component {
+      state = {
+        error: this.props.getErrorMessage('')
+      }
+
       handleSubmit = e => {
         e.preventDefault()
         const value = e.target.elements.username.value
         const error = this.props.getErrorMessage(value)
 
         if (error) {
-          alert(`error: ${error}`)
+          alert(`Error: ${error}`)
         } else {
-          alert(`success: ${value}`)
+          alert(`Success: ${value}`)
         }
       }
 
+      handleChange = e => {
+        const {value} = e.target
+        this.setState({
+          error: this.props.getErrorMessage(value)
+        })
+      }
+      // can also place this in the default state
+      // ComponentDidMount() {
+      //   this.setState({
+      //     error: this.props.getErrorMessage('')
+      //   })
+      // }
+
       render() {
+        const {error} = this.state
+        console.log("ERROR STATE", error)
         return (
-          <form onSubmit={this.handleSubmit}>
+          <form 
+            onSubmit={this.handleSubmit}
+          >
             <label>
               Name:
-              <input type='text' name='username' />
+              <input 
+                type='text' 
+                name='username'
+                onChange={this.handleChange}
+                 />
             </label>
-            <button type='submit'>SUBMIT</button>
+              {error ? (<div style={{color: 'red'}}>{error}</div>) : null}
+            <button 
+              type='submit'
+              disabled={Boolean(error)}
+              >SUBMIT</button>
           </form>
         )
       }
