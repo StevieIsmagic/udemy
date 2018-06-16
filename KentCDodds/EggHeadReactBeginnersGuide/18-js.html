@@ -6,54 +6,57 @@
 <script src="https://unpkg.com/axios@0.16.2/dist/axios.min.js"></script>
 
 <script type='text/babel'>
-  class UserCompany extends React.Component {
-    state = {company: undefined, loaded: false}
-    componentDidMount() {
-    console.log('this.state', this.state)
-      axios({
-        url: 'https://api.github.com/graphql',
-        method: 'post',
-        data: {
-          query: `{
-            user(login: "${this.props.username}") {
-            location
-            company
-            name
-            }
-          }`,
-        },
-          headers: {
-            Authorization: `bearer 7ff6fe47e854047db2623f37d91d6037d43ff5f0`
-          }, 
-      }).then(response => {
-        this.setState({
-          loaded: true, 
-          company: response.data.data.user.company
-        })
-        console.log('GithubGraphAPI Response: ', response.data.data.user, 'state', this.state)
-      }, error => {
-        this.setState({
-          error,
-          loaded: true
-        })
-      })
-    }
 
-    render() {
-      return this.state.loaded 
-        ? this.state.company || 'Unknown' 
-        : "..."    
-    }
+class UserCompany extends React.Component {
+  state = {company: undefined, loaded: false}
+
+  componentDidMount() {
+    console.log('this.state', this.state)
+    axios({
+      url: 'https://api.github.com/graphql',
+      method: 'post',
+      data: {
+        query: `{
+          user(login: "${this.props.username}") {
+          location
+          company
+          name
+          }
+        }`,
+      },
+        headers: {
+          Authorization: `bearer 7ff6fe47e854047db2623f37d91d6037d43ff5f0`
+        }, 
+    }).then(response => {
+      this.setState({
+        loaded: true, 
+        company: response.data.data.user.company
+      })
+      console.log('GithubGraphAPI Response: ', response.data.data.user, 'state', this.state)
+    }, error => {
+      this.setState({
+        error,
+        loaded: true
+      })
+    })
   }
-  const username = 'kentcdodds'
-  const element = (
+
+  render() {
+    return this.state.loaded 
+      ? this.state.company || 'Unknown' 
+      : "..."    
+  }
+}
+
+const username = 'kentcdodds'
+const element = (
+  <div>
     <div>
-      <div>
-        {`@${username} works at `}
-        <UserCompany username={username} />
-      </div>
+      {`@${username} works at `}
+      <UserCompany username={username} />
     </div>
-  )
+  </div>
+)
 
 ReactDOM.render(
   element, document.getElementById('root') )
