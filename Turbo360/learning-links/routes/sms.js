@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   var body = req.body // data from Twilio
   var message = body['Body']
-  if (message === null) {
+  if (message == null) {
     res.json({
       confirmation: "fail",
       message: err.message
@@ -23,7 +23,7 @@ router.post('/', (req, res) => {
   }
 
   var from = body['From'] // phone #
-  if (from === null) {
+  if (from == null) {
     res.json({
       confirmation: "fail",
       message: err.message
