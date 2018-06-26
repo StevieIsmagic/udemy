@@ -7,11 +7,13 @@ const app = vertex.app() // initialize app
 const index = require('./routes/index')
 const api = require('./routes/api')
 const sms = require('./routes/sms')
+const tags = require('./routes/tags')
 
 // set routes
 app.use('/', index)
 app.use('/api', api) // sample API Routes
-app.use('/sms', sms)
+app.use('/sms', sms) // messages returned from Twilio API call
+app.use('/tags', tags) // scraper tags
 
 
 module.exports = app

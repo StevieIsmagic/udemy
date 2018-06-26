@@ -2,6 +2,7 @@ const turbo = require('turbo360')({ site_id: process.env.TURBO_APP_ID })
 const vertex = require('vertex360')({ site_id: process.env.TURBO_APP_ID })
 const router = vertex.router()
 const superagent = require('superagent')
+const cheerio = require('cheerio')
 
 router.get('/', (req, res) => {
   var url = req.query.url
@@ -26,14 +27,32 @@ router.get('/', (req, res) => {
         return
       }
 
+      var tags = {}
       const html = response.text
-      res.send(html)
-    })
+      $ = cheerio.load(html)
+      $('meta').each(function(i, meta){
+        const attribs = meta.attribs
+        if (attribs == null) return true
 
-  // res.json({
-  //   confirmation: "success",
-  //   data: " this is the TAGS route"
-  // })
+        const property = attribs.property
+        if (property == null) return true
+    
+        if (property == 'og:title') {
+          tags['title'] = attribs.content
+        }
+        if (property == 'og:description') {
+          tags['description'] = attribs.content
+        }
+        if (property == 'og:image') {
+          tags['image'] = attribs.content
+        }   
+      })   
+      res.json({
+        confirmation: 'success',
+        tags: tags
+      })
+    
+    })
 })
 
 module.exports = router
