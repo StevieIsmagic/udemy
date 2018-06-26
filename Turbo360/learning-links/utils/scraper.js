@@ -9,6 +9,8 @@ module.exports = {
     $ = cheerio.load(html)
     $('meta').each(function (i, meta) {
       const attribs = meta.attribs
+      console.log("SCRAPER ATTRIBS", attribs)
+      
       if (attribs == null) return true
 
       const property = attribs.property

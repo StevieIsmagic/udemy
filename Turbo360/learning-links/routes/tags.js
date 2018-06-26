@@ -6,7 +6,7 @@ const scrape = require('../utils/scraper')
 
 router.get('/', (req, res) => {
   var url = req.query.url
-
+  
   if (url === null) {
     res.json({
       confirmation: 'fail',
@@ -14,8 +14,9 @@ router.get('/', (req, res) => {
     })
     return
   }
-
   
+  
+  res.send({'TAGS URL': url})
 })
 
 module.exports = router

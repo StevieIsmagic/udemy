@@ -14,7 +14,8 @@ router.get('/', (req, res) => {
 			// 	confirmation: 'success',
 			// 	data: data
 			// })
-		res.render('index', { messages: data })
+			console.log('Links Data', data)
+		res.render('index', { links: data })
 		})
 		.catch(err => {
 			res.json({

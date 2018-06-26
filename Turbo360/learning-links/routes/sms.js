@@ -8,7 +8,7 @@ const scrape = require('../utils/scraper')
 
 router.get('/', (req, res) => {
   res.json({
-    confirmation: "success",
+    confirmation: "SMS success",
     data: " this is the SMS route"
   })
 })
@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
     return
   }
   // checks if response message is an http URL link
-  if (message.indexOf('http') != -1) {
+  if (message.indexOf('http') != -1 || message.indexOf('.co') != -1) {
     superagent
       .get(message)
       .query(null)
@@ -50,10 +50,13 @@ router.post('/', (req, res) => {
         const html = response.text
         var tags = scrape.scraper(html)
 
+        console.log("SMS ROUTE TAGS AFTER SCRAPER", tags)
+
+        // create document in LINK Model of MongoDB
         turbo.create('link', tags)
           .then(data => {
               res.json({
-                confirmation: 'success',
+                confirmation: 'Confirm Link Document Success',
                 data: data
               })
           })
@@ -72,11 +75,11 @@ router.post('/', (req, res) => {
     message: message
   }
 
-  // create document in MongoDB
+  // create document in SMS Model of MongoDB
   turbo.create('sms', sms)
     .then(data => {
       res.json({
-        confirmation: 'success',
+        confirmation: 'Confirm SMS Document Success',
         data: data
       })
     })
