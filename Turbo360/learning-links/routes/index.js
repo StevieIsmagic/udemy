@@ -8,7 +8,7 @@ const router = vertex.router()
 	information, view here: https://mustache.github.io/#demo */
 router.get('/', (req, res) => {
 
-	turbo.fetch('sms', null)
+	turbo.fetch('link', null)
 		.then(data => {
 			// res.json({
 			// 	confirmation: 'success',

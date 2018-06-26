@@ -36,8 +36,8 @@ router.post('/', (req, res) => {
   // checks if response message is an http URL link
   if (message.indexOf('http') != -1) {
     superagent
-      .get(url)
-      .query(message)
+      .get(message)
+      .query(null)
       .end((err, response) => {
         if (err) {
           res.json({

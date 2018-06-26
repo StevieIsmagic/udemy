@@ -13,7 +13,7 @@ const tags = require('./routes/tags')
 app.use('/', index)
 app.use('/api', api) // sample API Routes
 app.use('/sms', sms) // messages returned from Twilio API call
-app.use('/tags', tags) // scraper tags
+app.use('/tags', tags) // scraper returns specified html tags
 
 
 module.exports = app
