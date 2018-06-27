@@ -1,5 +1,11 @@
 # learning-links
 
+### To-Do
+google analytics
+regex for https link validation
+site content
+
+
 This project was built with Turbo 360. To learn more, click here: https://www.turbo360.co
 
 ## Instructions
