@@ -13,7 +13,7 @@
   1. Images / Links 
 
 * Get In Touch Section
-    1. Add Social Media links
+  1. Add Social Media links
 
 <hr>
 
