@@ -1,12 +1,19 @@
 # Learning-Links
 
 ## To-Do
-google analytics
-regex for https link validation
-site content
-* ~~Landing Jumbotron~~
+* ~~Google Analytics~~
 
-*  Images / Links for App section
+* ~~Landing Jumbotron Section~~
+* Articles Section
+  1. regex for https link validation
+  2. add http to schema
+  3. front end - connect button to respective link 
+
+*  App Section
+  1. Images / Links 
+
+* Get In Touch Section
+    1. Add Social Media links
 
 <hr>
 
