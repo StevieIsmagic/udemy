@@ -7,9 +7,6 @@ module.exports = {
 
     var tags = {}
     $ = cheerio.load(html)
-
-    
-
     $('meta').each(function (i, meta) {
       const attribs = meta.attribs
       
