@@ -8,7 +8,8 @@
   1. regex for https link validation
   2. ~~add http to schema~~
   3. ~~front end - connect button to respective link~~
-  4. Size photos appropriately for mobile 
+  4. Size photos appropriately for mobile
+  5. conditional render - if scrape doe not render MetaData - 'This link is a surprise. Do you dare click it ?' 
 
 *  App Section
   1. Images / Links 
