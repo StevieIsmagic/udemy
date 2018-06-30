@@ -50,8 +50,6 @@ router.post('/', (req, res) => {
         const html = response.text
         var tags = scrape.scraper(html)
 
-        console.log("SMS ROUTE TAGS AFTER SCRAPER", tags)
-
         tags = Object.assign({}, tags, {'http' : message})
 
         // create document in LINK Model of MongoDB
