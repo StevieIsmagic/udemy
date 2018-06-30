@@ -6,8 +6,8 @@
 * ~~Landing Jumbotron Section~~
 * Articles Section
   1. regex for https link validation
-  2. add http to schema
-  3. front end - connect button to respective link
+  2. ~~add http to schema~~
+  3. ~~front end - connect button to respective link~~
   4. Size photos appropriately for mobile 
 
 *  App Section
