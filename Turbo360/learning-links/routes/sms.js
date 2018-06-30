@@ -52,6 +52,8 @@ router.post('/', (req, res) => {
 
         console.log("SMS ROUTE TAGS AFTER SCRAPER", tags)
 
+        tags = Object.assign({}, tags, {'http' : message})
+
         // create document in LINK Model of MongoDB
         turbo.create('link', tags)
           .then(data => {
