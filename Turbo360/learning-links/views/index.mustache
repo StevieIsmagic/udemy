@@ -30,13 +30,7 @@
 			<section id="intro" class="wrapper style1 fullscreen fade-up">
 				<div class="inner">
 					<h1>Friends + Family</h1>
-					<p>
-						We Are A Team. 
-						</br>
-						When You Get Better, I Get Better. 
-						<br/>
-						Selfishly Sharing Content for Your Growth + Learning.
-					</p>
+					<p>Selfishly Sharing Content for Your Growth + Learning. <br/> When You Get Better, I Get Better. We Are A Team.</p>
 				</div>
 			</section>
 
@@ -44,16 +38,21 @@
 			<section id="one" class="wrapper style2 spotlights">
 				{{#links}}
 					<section>
-					<a href="{{http}}" class="image"><img src="{{image}}" alt="" data-position="center center" /></a>
-					<div class="content">
-						<div class="inner">
-							<h2>{{title}}</h2>
-							<p>{{description}}</p>
+					<div class="parent">
+						<div>
+							<a href="{{http}}" ><img src="{{image}}" class="child1" style="450px" alt="" data-position="center center" /></a>
+						</div>
+						<div class="child2">
+							<a href="{{http}}">
+								<h2 style="text-align: center; padding-top: 5px">{{title}}</h2>
+								<p style="text-align: center">{{description}}</p>
+							</a>
 							<ul class="actions">
-								<li><a href="{{http}}" class="button">Learn more</a></li>
+								<li><a href="{{http}}" class="button" style="margin-top: 20px">Learn more</a></li>
 							</ul>
 						</div>
 					</div>
+			
 					</section>
 				{{/links}}
 				
@@ -110,7 +109,6 @@
 					<h2>Let's Connect</h2>
 					<div class="split style1">
 						<section>
-						<img src="/images/headshot.jpg">
 							<div>
 								<p>I'm obsessed with being of service. If you ever want to discuss any of these topics I share,
 								 have a question, care to share some of your own knowledge with me, or just need someone who listens, 
