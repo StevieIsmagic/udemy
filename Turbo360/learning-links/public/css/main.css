@@ -524,6 +524,13 @@
 
 	@media screen and (max-width: 1280px) {
 
+		.child1 {
+			border-radius: 20%;
+			width: 500px;
+			height: 500px;
+			z-index: -1;
+		}
+
 		.row > * {
 			padding: 0 0 0 1.5em;
 		}
@@ -1383,6 +1390,10 @@
 	}
 
 	@media screen and (max-width: 360px) {
+
+		.child1 {
+			
+		}
 
 		.row > * {
 			padding: 0 0 0 1.5em;
@@ -2582,11 +2593,35 @@
 
 /* Image */
 
+	.parent {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 5%;
+	}
+
+	.child1 {
+		border-radius: 50%;
+		width: 200px;
+		height: 200px;
+		z-index: -1;
+	}
+	.child2 {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 0 20%;
+	} 
+
 	.image {
 		border-radius: 0.25em;
 		border: 0;
 		display: inline-block;
 		position: relative;
+		padding: 25px;
+		width: 50%
 	}
 
 		.image img {
@@ -3071,6 +3106,7 @@
 				-ms-transition: opacity 1s ease, -ms-transform 1s ease;
 				transition: opacity 1s ease, transform 1s ease;
 				opacity: 1;
+				
 			}
 
 		.spotlights > section:nth-child(2) {
