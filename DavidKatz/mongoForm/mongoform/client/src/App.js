@@ -4,6 +4,20 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {
+    response: ''
+  };
+
+  componentDidMount() {
+    this.callApi()
+      .then(res => this.setState({ response: res.express }))
+      .catch(err => console.log(err));
+  }
+
+  callApi = async () => {
+    
+  }
+
   render() {
     return (
       <div className="App">
