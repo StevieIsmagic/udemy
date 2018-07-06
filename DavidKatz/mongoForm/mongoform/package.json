@@ -1,6 +1,7 @@
 {
-  "name": "mongoForm",
+  "name": "mongoform",
   "version": "1.0.0",
+  "description": "Backend Node Server",
   "scripts": {
     "client": "cd client && yarn start",
     "server": "nodemon server.js",
