@@ -10,7 +10,9 @@ class App extends Component {
 
   componentDidMount() {
     this.callApi()
-      .then(res => this.setState({ response: res.express }))
+      .then(res => {
+        console.log('CDM Response', res);
+        this.setState({ response: res.express })})
       .catch(err => console.log(err));
   }
 
@@ -32,8 +34,8 @@ class App extends Component {
         </header>
         <p className="App-intro">
           {this.state.response}
-          <Form />
         </p>
+        <Form />
       </div>
     );
   }
