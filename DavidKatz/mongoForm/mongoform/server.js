@@ -10,7 +10,7 @@ app.get('/api/hello', (req, res) => {
 });
 
 if (process.env.NODE_ENV === 'production') {
-  //Serve any static files
+  //Serve any static files from the React App
   app.use(express.static(path.join(__dirname, 'client/build')));
 
   //Handle React Routing, return all requests to React App
