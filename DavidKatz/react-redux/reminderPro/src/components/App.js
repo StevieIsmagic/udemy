@@ -32,7 +32,7 @@ class App extends Component {
           <div className="form-group">
             <input 
               className="form-control"
-              placeholder="I have to..."
+              placeholder="I have to remember..."
               onChange={(e) => {this.handleChange(e)}}
             />
           </div>
