@@ -41,7 +41,7 @@ class App extends Component {
             className="btn btn-success"
             onClick={() => this.addReminder()}
           >
-            Add Reminder
+            Add A Reminder Stevie!
           </button>
         </div>
       </div>
