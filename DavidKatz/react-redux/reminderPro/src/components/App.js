@@ -51,6 +51,9 @@ class App extends Component {
 
 function mapStateToProps(state) {
   console.log('MSTP state', state);
+  return {
+    reminders: state
+  }
 }
 
 export default connect(mapStateToProps, { addReminder })(App);
