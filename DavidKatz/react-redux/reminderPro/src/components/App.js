@@ -17,6 +17,25 @@ class App extends Component {
     this.props.addReminder(this.state.text);
   }
 
+  renderReminders() {
+    const { reminders } = this.props;
+    // console.log('Render Reminders', reminders);
+
+    return (
+      <ul className="list-group col-sm-4">
+        {
+          reminders.map( reminder => {
+            return (
+              <li key={reminder.id} className="list-group-item">
+                <div>{ reminder.text}</div>
+              </li>
+            )
+          })
+        }
+      </ul>
+    )
+  }
+
   handleChange = (e) => {
     this.setState({
       text: e.target.value
@@ -28,7 +47,7 @@ class App extends Component {
         <div className="title">
           Stevie's Reminder App
         </div>
-        <div className="form-inline">
+        <div className="form-inline reminder-form">
           <div className="form-group">
             <input 
               className="form-control"
@@ -40,10 +59,11 @@ class App extends Component {
             type="button"
             className="btn btn-success"
             onClick={() => this.addReminder()}
-          >
+            >
             Add A Reminder Stevie!
           </button>
         </div>
+        { this.renderReminders() }
       </div>
     )
   }
