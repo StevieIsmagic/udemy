@@ -75,5 +75,5 @@ function mapStateToProps(state) {
     reminders: state
   }
 }
-
+//                                          Action
 export default connect(mapStateToProps, { addReminder })(App);
