@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
-import { addReminder } from '../actions';
+import { addReminder, deleteReminder } from '../actions';
 
 
 class App extends Component {
@@ -27,7 +27,10 @@ class App extends Component {
           reminders.map( reminder => {
             return (
               <li key={reminder.id} className="list-group-item">
-                <div>{ reminder.text}</div>
+                <div className="list-item">{ reminder.text}</div>
+                <div className="list-item delete-button">
+                  &#x2715;
+                </div>
               </li>
             )
           })
@@ -76,5 +79,5 @@ function mapStateToProps(state) {
     reminders: state
   }
 }
-//                                          Action
-export default connect(mapStateToProps, { addReminder })(App);
+//                                          Actions
+export default connect(mapStateToProps, { addReminder, deleteReminder })(App);
