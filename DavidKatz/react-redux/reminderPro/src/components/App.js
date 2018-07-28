@@ -57,7 +57,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="title">
-          Stevie's Reminder App
+          Stevie's Personal Reminder App
           <p>Get Your Reminder Game Up!</p>
         </div>
         <div className="form-inline reminder-form">
