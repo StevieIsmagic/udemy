@@ -8,13 +8,14 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      text: ''
+      text: '',
+      dueDate: ''
     }
   }
 
   addReminder() {
-    console.log('this', this);
-    this.props.addReminder(this.state.text);
+    console.log('this', this.state.dueDate);
+    this.props.addReminder(this.state.text, this.state.dueDate);
   }
 
   deleteReminder(id) {
@@ -50,7 +51,7 @@ class App extends Component {
 
   handleChange = (e) => {
     this.setState({
-      text: e.target.value
+      [e.target.name]: e.target.value
     })
   }
   render() {
@@ -63,10 +64,18 @@ class App extends Component {
         <div className="form-inline reminder-form">
           <div className="form-group">
             <input 
+              name='text'
               className="form-control"
               placeholder="I have to remember..."
               onChange={(e) => {this.handleChange(e)}}
             />
+            <input
+              name='dueDate'
+              className="form-control"
+              type="datetime-local"
+              onChange={e => this.handleChange(e)}
+            />
+
           </div>
           <button
             type="button"
