@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import { addReminder, deleteReminder } from '../actions';
 
-
 class App extends Component {
   constructor(props){
     super(props);
@@ -34,7 +33,10 @@ class App extends Component {
           reminders.map( reminder => {
             return (
               <li key={reminder.id} className="list-group-item">
-                <div className="list-item">{ reminder.text}</div>
+                <div className="list-item">
+                  <div>{ reminder.text }</div>
+                  <div><em>{ reminder.dueDate }</em></div>
+                </div>
                 <div 
                   className="list-item delete-button"
                   onClick={() => this.deleteReminder(reminder.id)}
