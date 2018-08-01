@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import { addReminder, deleteReminder } from '../actions';
+import moment from 'moment';
 
 class App extends Component {
   constructor(props){
@@ -35,7 +36,7 @@ class App extends Component {
               <li key={reminder.id} className="list-group-item">
                 <div className="list-item">
                   <div>{ reminder.text }</div>
-                  <div><em>{ reminder.dueDate }</em></div>
+                  <div><em>{ moment(new Date(reminder.dueDate)).fromNow() }</em></div>
                 </div>
                 <div 
                   className="list-item delete-button"
