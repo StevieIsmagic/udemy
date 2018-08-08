@@ -50,7 +50,7 @@ class SignIn extends Component {
             className="btn btn-primary"
             type="button"
             style={{ marginTop: '2%' }}
-            onSubmit={() => this.signIn()}
+            onClick={() => this.signIn()}
           >
             Sign In
           </button>
