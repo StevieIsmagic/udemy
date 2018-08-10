@@ -33,7 +33,10 @@ class App extends Component {
 
 function mapStateToProps(state) {
   console.log('App MSTP', state);
-  return {};
+  const { user } = state;
+  return {
+    user
+  };
 }
 
 export default connect(mapStateToProps, null)(App);
