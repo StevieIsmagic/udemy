@@ -12,7 +12,7 @@ class App extends Component {
 
   render() {
     return (
-      <div> 
+      <div style={{margin: '5%'}}> 
         <h3>Goals</h3>
         <AddGoal />
         <GoalList />
