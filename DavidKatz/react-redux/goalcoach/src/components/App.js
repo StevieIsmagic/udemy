@@ -13,8 +13,10 @@ class App extends Component {
   render() {
     return (
       <div style={{margin: '5%'}}> 
-        <h3>Goals</h3>
+        <h3>Stevie's Goals</h3>
         <AddGoal />
+        <hr/>
+        <h4>Goals</h4>
         <GoalList />
         <button
           className="btn btn-danger"
