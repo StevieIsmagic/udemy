@@ -15,9 +15,10 @@ class App extends Component {
       <div style={{margin: '5%'}}> 
         <h3>Stevie's Goals</h3>
         <AddGoal />
-        <hr/>
+        <hr />
         <h4>Goals</h4>
         <GoalList />
+        <hr />
         <button
           className="btn btn-danger"
           onClick={() => this.signOut()}
