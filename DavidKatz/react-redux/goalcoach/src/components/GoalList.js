@@ -27,7 +27,7 @@ class GoalList extends Component {
               <GoalItem key={index} goal={goal} />
             )
           })
-        }z
+        }
       </div>
     )
   }
