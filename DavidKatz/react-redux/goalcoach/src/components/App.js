@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div style={{margin: '5%'}}> 
-        <h2>Family Goals</h2>
+        <h2>Dream Goals</h2>
         <hr/>
         <h3>Current User: { this.props.user.email }</h3>
         <AddGoal />
