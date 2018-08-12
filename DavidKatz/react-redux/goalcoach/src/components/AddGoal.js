@@ -11,11 +11,17 @@ class AddGoal extends Component {
   }
 
   addGoal() {
-    console.log('addGoal State', this);
     const { title } = this.state;
     const { email } = this.props.user;
     goalRef.push({email, title});
+    
   }
+
+  // clearForm() {
+  //   this.setState({ title: ''});
+    
+  //   console.log('State AFTER', this.state);
+  // }
 
   render() {
     return (
@@ -32,6 +38,7 @@ class AddGoal extends Component {
             className='btn btn-success'
             type='button'
             onClick={() => this.addGoal()}
+            style={{marginTop: '1%'}}
           >
             Submit
           </button>
