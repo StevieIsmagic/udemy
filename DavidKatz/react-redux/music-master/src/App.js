@@ -11,7 +11,8 @@ class App extends Component {
   }
 
   search() {
-    console.log('this.state', this.state);
+    console.log('Spotify API', this.state);
+
   }
 
   render() {
