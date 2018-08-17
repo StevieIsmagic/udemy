@@ -19,6 +19,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-title">Stevie's Music Box</div>
+        <p>Life inside the musicbox aint easy..</p>
         <FormGroup>
           <InputGroup>
             <FormControl 
