@@ -12,7 +12,7 @@ class App extends Component {
 
   search() {
     console.log('Spotify API', this.state);
-
+    const BASE_URL = 'https://api.spotify.com/v1/search'
   }
 
   render() {
