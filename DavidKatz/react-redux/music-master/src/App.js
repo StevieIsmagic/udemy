@@ -24,6 +24,7 @@ class App extends Component {
         <div className="App-title">Stevie's Music Box</div>
         <p>Life inside the musicbox aint easy..</p>
         <p>so keep the hope alive, lover.</p>
+        <p>Last Time.</p>
         <FormGroup>
           <InputGroup>
             <FormControl 
