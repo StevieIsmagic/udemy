@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
+import Profile from './Profile';
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class App extends Component {
     console.log('Spotify API', this.state);
     const BASE_URL = 'https://api.spotify.com/v1/search?'
     const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
-    let accessToken = 'BQAcEpQR3EP1bqWRVEkhpsDRd1ujOzuZjV7_ZZZ3GMQpVwg93VGZJ2oJm34SrC02OZVU7-O14TrVIwhrFsH1u1Ku4xVOpl8cKHbhGAJUMg3IWd3IOpfR8JVmaltz8duYuIOk229Nfwq-zto8V_AZOsPiG4HnXhc&refresh_token=AQB3HXlC0paHd0fFq8O2AmkBSh0_r_i3zJUqvRGWx_kj3Z8Hp2knUVj_j1Q_2HCy89CsUfZN_nhvgr3lZqu65QaD4c_R2cORJw4SvbHxviuqrAhuinrmqr9atdwPZm8AHgY'
+    let accessToken = 'BQAncyHIlAs_8Rfv-eZNlM3RCBbm9e93CxZXzHjwVpyXfXvWxlsjlCkoLcmjjqEtUXs47FBZcjidj8-w6gA-7zOLwAX4tpx80Lr4izPl2wUinzk1VUFugCxDeOnaNkTBdvSrEXLyOxygXMN1ZFmArB_tUrSzB10&refresh_token=AQCm505nv8B_hh3Rs_vr3YLR0g3p-3LqyPG72xPfVT-d_4pFH8yxWjMByWTduqN1Rv_yqRcnbIaguK_Y_AZbz7UnvAdPoxxD34XVm8qtU2lf4J7Np-5ZMaxskW43r0ZYaPU'
     console.log('FETCH_URL', FETCH_URL);
 
     let myOptions = {
@@ -30,24 +31,13 @@ class App extends Component {
     fetch(FETCH_URL, myOptions)
       .then(response => response.json())
       .then(json => {
+        console.log('STEVIE\'S FETCHED RESPONSE:', json)
         const artist = json.artists.items[0];
         this.setState({ artist });
       })
   }
 
   render() {
-
-    let artist = {
-      name: '',
-      followers: {
-        total: ''
-      }
-    };
-
-    if (this.state.artist !== null) {
-      artist = this.state.artist;
-    }
-
     return (
       <div className="App">
         <div className="App-title">Stevie's Music Box</div>
@@ -72,12 +62,9 @@ class App extends Component {
             </InputGroup.Addon>
           </InputGroup>
         </FormGroup>
-        <div className="Profile">
-          <div>Artist Picture</div>
-          <div>Artist Name: {artist.name}</div>
-          <div>Followers: {artist.followers.total}</div>
-
-        </div>
+        <Profile 
+          artist={this.state.artist} 
+        />
           <div className="Gallery">
             Gallery
           </div>
