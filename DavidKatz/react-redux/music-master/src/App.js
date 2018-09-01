@@ -8,15 +8,17 @@ class App extends Component {
     super(props);
       this.state = {
         query: '',
-        artist: null
+        artist: null,
+        tracks: null
       }
   }
 
   search() {
     console.log('Spotify API', this.state);
     const BASE_URL = 'https://api.spotify.com/v1/search?'
-    const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
-    let accessToken = 'BQCLDaCWo_V8eXhFoNy4HN_AixFM9AwuAtm-RWp2VPXwG-MKB511Ho6Yw7-KEr2XFlbd_4cx-RWw2ETcvNirUDo5VqFHqlzQW_UVnqgG0OAaenP-kzUuAeBhGDOoUl9Ffn0iHxjHdGy5MgxGPnW2ITYBFk3v_Ew&refresh_token=AQAr_A1WtmLre1O1iYxXhV4SFtgVH95Smwp7Y63_vdS463WlsUU8_avxgh38SPoEo5NhcIJhmSdcmwGYkhn3D7xSBM3clpROzvMVcBSfQVjXj_KrqOsAycPfciXYDtSJJSc';
+    let FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
+    const ALBUM_URL = `https://api.spotify.com/v1/artists/`;
+    let accessToken = 'BQCdtGNecHSKd-BrvbUKj_ZmbK4K0vOdOE4BgNHbbr_Nf20UkqXsiXNyL9Tn0iciRVMg8LicPE5yGkWx73wr4GiRIpb1m8PYhKO8rRAPnMlDHIVW--06zwPENX_0oVcrEStyXdYZRNLZ0M3knrkpKDIeKQqRNNM&refresh_token=AQAqfYV2OUW9RwVdZfO5ZQGdfMbMjw5fYOvBDoQMjZZ4jgDOQx4lKRFb9lJIsgPiS1yIDd-RftjhIhQo-oC_Dmg1R5ZTiqZZN2M1H1vstf9qSVYye9mcr-63H4e4wPkCy0A';
     console.log('FETCH_URL', FETCH_URL);
 
     let myOptions = {
@@ -34,6 +36,15 @@ class App extends Component {
         console.log('STEVIE\'S FETCHED RESPONSE:', json)
         const artist = json.artists.items[0];
         this.setState({ artist });
+
+        FETCH_URL = `${ALBUM_URL}${artist.id}/top-tracks?country=US&`;
+        fetch(FETCH_URL, myOptions)
+          .then(response => response.json())
+          .then(json => {
+            console.log('Artist TOP Tracks', json);
+            const { tracks } = json;
+            this.setState({ tracks });
+          })
       })
   }
 
