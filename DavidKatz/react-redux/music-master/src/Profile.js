@@ -5,7 +5,7 @@ class Profile extends Component {
   render() {
     let artist = {
       name: '',
-      images: [],
+      images: [{url: ''}],
       followers: {
         total: ''
       }
@@ -16,13 +16,15 @@ class Profile extends Component {
     }
 
     return (
-      <div>
         <div className="Profile">
-          <div>Artist Image: TBD</div>
+          <img 
+            alt="Profile"
+            className="profile-img"
+            src={artist.images[0].url}
+          />
           <div>Artist Name: {artist.name}</div>
           <div>Followers: {artist.followers.total}</div>
         </div>
-      </div>
     )
   }
 }
