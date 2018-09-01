@@ -16,7 +16,7 @@ class App extends Component {
     console.log('Spotify API', this.state);
     const BASE_URL = 'https://api.spotify.com/v1/search?'
     const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
-    let accessToken = 'BQAncyHIlAs_8Rfv-eZNlM3RCBbm9e93CxZXzHjwVpyXfXvWxlsjlCkoLcmjjqEtUXs47FBZcjidj8-w6gA-7zOLwAX4tpx80Lr4izPl2wUinzk1VUFugCxDeOnaNkTBdvSrEXLyOxygXMN1ZFmArB_tUrSzB10&refresh_token=AQCm505nv8B_hh3Rs_vr3YLR0g3p-3LqyPG72xPfVT-d_4pFH8yxWjMByWTduqN1Rv_yqRcnbIaguK_Y_AZbz7UnvAdPoxxD34XVm8qtU2lf4J7Np-5ZMaxskW43r0ZYaPU'
+    let accessToken = 'BQCLDaCWo_V8eXhFoNy4HN_AixFM9AwuAtm-RWp2VPXwG-MKB511Ho6Yw7-KEr2XFlbd_4cx-RWw2ETcvNirUDo5VqFHqlzQW_UVnqgG0OAaenP-kzUuAeBhGDOoUl9Ffn0iHxjHdGy5MgxGPnW2ITYBFk3v_Ew&refresh_token=AQAr_A1WtmLre1O1iYxXhV4SFtgVH95Smwp7Y63_vdS463WlsUU8_avxgh38SPoEo5NhcIJhmSdcmwGYkhn3D7xSBM3clpROzvMVcBSfQVjXj_KrqOsAycPfciXYDtSJJSc';
     console.log('FETCH_URL', FETCH_URL);
 
     let myOptions = {
