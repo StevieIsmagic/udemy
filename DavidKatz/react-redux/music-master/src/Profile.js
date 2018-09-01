@@ -14,7 +14,6 @@ class Profile extends Component {
 
     artist = this.props.artist !== null ? this.props.artist : artist;
 
-
     return (
         <div className="profile">
           <img 
@@ -23,19 +22,23 @@ class Profile extends Component {
             src={artist.images[0].url}
           />
           <div className="profile-info">
-            <div className="profile-name">Artist Name: {artist.name}</div>
-            <div className="profile-followers">Followers: {artist.followers.total}</div>
+            <div className="profile-name">{artist.name}</div>
+            <div className="profile-followers">
+              {artist.followers.total} Followers
+            </div>
             <div className="profile-genres">
               { 
                 artist.genres.map((genre, key) => {
-                  genre = genre !== artist.genres[artist.genres.length -1] ? ` ${genre},` : ` & ${genre}`;
+                  genre = genre !== artist.genres[artist.genres.length -1] 
+                                ? ` ${genre},` 
+                                : ` & ${genre}`;
                   return (
                     <span key={key}>{genre}</span>
                   )
                 })
               }
             </div>
-            </div>
+          </div>
         </div>
     )
   }

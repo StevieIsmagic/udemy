@@ -42,8 +42,6 @@ class App extends Component {
       <div className="App">
         <div className="App-title">Stevie's Music Box</div>
         <p>Life inside the musicbox aint easy..</p>
-        <p>so keep the hope alive, lover.</p>
-        <p>We are lovers of the beautiful</p>
         <FormGroup>
           <InputGroup>
             <FormControl 
@@ -62,12 +60,19 @@ class App extends Component {
             </InputGroup.Addon>
           </InputGroup>
         </FormGroup>
-        <Profile 
-          artist={this.state.artist} 
-        />
-          <div className="Gallery">
-            Gallery
+        {
+        this.state.artist !== null
+        ? <div>
+            <Profile 
+              artist={this.state.artist} 
+            />
+            <div className="Gallery">
+              Gallery
+            </div>
           </div>
+        : <div></div>
+        }
+
       </div>
     )
   }
