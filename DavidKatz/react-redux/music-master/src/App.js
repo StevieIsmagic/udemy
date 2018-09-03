@@ -15,12 +15,10 @@ class App extends Component {
   }
 
   search() {
-    console.log('Spotify API', this.state);
     const BASE_URL = 'https://api.spotify.com/v1/search?'
     let FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
     const ALBUM_URL = `https://api.spotify.com/v1/artists/`;
     let accessToken = 'BQDwb9ex5hVaPiqq34aGA94aJcgISBU00bQGfxekeDfw3-gv0DLlz6xtC0Hez09U6-46ifFls3jo7i43mABmiH-9GEIY4d2-mJZMqm0zadzgHMGRq7nfNy5H_QzB7slvXj-Jo57Bkg-4CibQc_pMJ2Pg1UqgC4U&refresh_token=AQCSl-8shkGWGk6xXrAsT2O5ZJsGlFa_SC9AKV6_rINDHeyImG9l4G8Zt3XLqxAXmicqmA8Dgs3Jtb-g7JT4Tc88NeOMNCJTxAnQNxh9UsY12G-ghamw_tmVR5afcdT4sTQ';
-    console.log('FETCH_URL', FETCH_URL);
 
     let myOptions = {
       method: 'GET',
@@ -34,7 +32,7 @@ class App extends Component {
     fetch(FETCH_URL, myOptions)
       .then(response => response.json())
       .then(json => {
-        console.log('STEVIE\'S FETCHED RESPONSE:', json)
+        console.log('FETCHED RESPONSE:', json)
         const artist = json.artists.items[0];
         this.setState({ artist });
 
@@ -42,7 +40,6 @@ class App extends Component {
         fetch(FETCH_URL, myOptions)
           .then(response => response.json())
           .then(json => {
-            console.log('Artist TOP Tracks', json);
             const { tracks } = json;
             this.setState({ tracks });
           })
