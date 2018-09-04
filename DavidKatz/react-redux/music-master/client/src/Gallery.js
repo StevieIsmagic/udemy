@@ -61,7 +61,7 @@ class Gallery extends Component {
                 />
                 <div className="track-play">
                   <div className="track-play-inner">
-
+                      &#9654;
                   </div>
                 </div>
                 <p className="track-text">
